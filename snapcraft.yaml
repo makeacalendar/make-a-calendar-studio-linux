@@ -1,0 +1,51 @@
+name: make-a-calendar-studio
+title: Make a Calendar Studio
+base: core24
+version: "0.1.0"
+summary: Design calendars and schedules, then export crisp documents offline
+description: |
+  A native Linux workspace for monthly and yearly calendars, local project notes,
+  business-day calculations, US federal holiday dates, retail fiscal periods,
+  recurring pay dates, rotating shifts, date conversion, and vector PDF/SVG export.
+
+  Calendar data and saved projects stay on your device. Optional Make a Calendar
+  links open in your default browser only when selected.
+  Created by Ethan, the developer behind Make a Calendar.
+license: MIT
+website: https://make-a-calendar.com/
+grade: devel
+confinement: strict
+adopt-info: app
+
+apps:
+  make-a-calendar-studio:
+    command: bin/make-calendar-studio
+    desktop: usr/share/applications/com.makeacalendar.Studio.desktop
+    common-id: com.makeacalendar.Studio.desktop
+    extensions: [gnome]
+  make-calendar-studio-cli:
+    command: bin/make-calendar-studio-cli
+
+parts:
+  app:
+    plugin: nil
+    source: .
+    parse-info:
+      - usr/share/metainfo/com.makeacalendar.Studio.metainfo.xml
+    stage-packages:
+      - python3
+      - python3-gi
+      - gir1.2-gtk-4.0
+      - gir1.2-adw-1
+      - libadwaita-1-0
+      - shared-mime-info
+    override-build: |
+      craftctl default
+      install -d "$CRAFT_PART_INSTALL/src"
+      cp -R src/make_a_calendar_studio "$CRAFT_PART_INSTALL/src/"
+      install -Dm755 bin/make-calendar-studio "$CRAFT_PART_INSTALL/bin/make-calendar-studio"
+      install -Dm755 bin/make-calendar-studio-cli "$CRAFT_PART_INSTALL/bin/make-calendar-studio-cli"
+      install -Dm644 assets/com.makeacalendar.Studio.desktop "$CRAFT_PART_INSTALL/usr/share/applications/com.makeacalendar.Studio.desktop"
+      install -Dm644 assets/com.makeacalendar.Studio.metainfo.xml "$CRAFT_PART_INSTALL/usr/share/metainfo/com.makeacalendar.Studio.metainfo.xml"
+      install -Dm644 assets/make-a-calendar-studio.svg "$CRAFT_PART_INSTALL/usr/share/icons/hicolor/scalable/apps/make-a-calendar-studio.svg"
+      rm -rf "$CRAFT_PART_INSTALL/tests" "$CRAFT_PART_INSTALL/docs" "$CRAFT_PART_INSTALL/.github" "$CRAFT_PART_INSTALL/.git"
