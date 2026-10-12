@@ -1,0 +1,7 @@
+#!/bin/sh
+set -eu
+SNAP_ROOT="${SNAP:-$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)}"
+export PYTHONPATH="$SNAP_ROOT/src${PYTHONPATH:+:$PYTHONPATH}"
+export XDG_DATA_HOME="${SNAP_USER_DATA:-${XDG_DATA_HOME:-$HOME/.local/share/make-a-calendar-studio}}"
+exec "$SNAP_ROOT/usr/bin/python3" -m make_a_calendar_studio "$@"
+
