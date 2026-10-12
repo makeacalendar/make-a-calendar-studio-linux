@@ -6,7 +6,7 @@ Make a Calendar Studio is an original GTK4/Libadwaita desktop application for mo
 
 Created by Ethan, the developer behind [Make a Calendar](https://make-a-calendar.com/). This is independent desktop software inspired by practical date workflows; it does not call or reproduce the website's private implementation.
 
-## Current development release
+## Version 0.1.0
 
 The 0.1.0 source includes:
 
@@ -16,7 +16,7 @@ The 0.1.0 source includes:
 - Vector PDF and SVG month exports, CSV/JSON month data, all-day ICS export of saved project events, and an offline CLI.
 - SQLite project and event storage under the user's application-data directory.
 
-This is an early development build. The Linux GUI and Snap have not yet been run in this macOS authoring environment. See [the verification record](docs/verification.md) for exactly what has and has not been checked. There is no ICS import, cloud sync, direct printer integration, or multi-month PDF export in 0.1.0.
+Version 0.1.0 is published on the Snap Store's `latest/edge` channel. GitHub Actions has run the Linux tests, lint, CLI/export checks, GTK startup check, and authentic Linux screenshot capture. Stable is not yet published: a new stable-grade Store revision still needs a successful build and Store approval. See [the verification record](docs/verification.md) for the exact status. There is no ICS import, cloud sync, direct printer integration, or multi-month PDF export in 0.1.0.
 
 ## Run the command-line tools
 
@@ -35,7 +35,7 @@ For a native desktop development setup on Ubuntu 24.04 or a compatible distribut
 PYTHONPATH=src python3 -m make_a_calendar_studio
 ```
 
-The supported Snap package is intended to bundle the GTK runtime and use strict confinement. The GTK app requires GTK 4, Libadwaita 1, and PyGObject; the pure date engine and CLI use only the Python standard library.
+The supported Snap package bundles the GTK runtime and uses strict confinement. The GTK app requires GTK 4, Libadwaita 1, and PyGObject; the pure date engine and CLI use only the Python standard library.
 
 ## Build, tests, and Snap
 
@@ -43,13 +43,13 @@ Run core tests with `PYTHONPATH=src python3 -m unittest discover -s tests`. The 
 
 The separate Snap workflow builds the `core24` package on Ubuntu and retains the `.snap` as a temporary artifact for review. It does not publish to the Store.
 
-Snap packaging targets `core24` with strict confinement and the GNOME extension. The manifest is marked `grade: devel` until a Linux Snap build and GUI run pass. See [Snap publishing notes](docs/snap-publishing.md). Do not promote a revision to stable based on the macOS core tests alone.
+Snap packaging targets `core24` with strict confinement and the GNOME extension. The manifest declares stable grade, a store icon, source repository, issue tracker, contact link, and linked Make a Calendar resources. A genuine Linux build and headless GTK launch passed in GitHub Actions; the Store still needs an approved stable-grade revision before stable can be claimed. See [Snap publishing notes](docs/snap-publishing.md).
 
 ## Online calendar resources
 
-The app ships with a small set of contextual links: [monthly calendar pages](https://make-a-calendar.com/monthly-calendars), a [custom year-grid generator](https://make-a-calendar.com/calendar-generator), [business-day calculator](https://make-a-calendar.com/business-days-calculator), [4-4-5 retail calendar](https://make-a-calendar.com/445-calendar), [date tools](https://make-a-calendar.com/date-tools), and the site's [iCalendar generator](https://make-a-calendar.com/ical-generator). The app's own calculations stay offline; the website links are optional references.
+The app ships with contextual, optional links to the [Make a Calendar home page](https://make-a-calendar.com/), [monthly calendars](https://make-a-calendar.com/monthly-calendars), [blank calendar templates](https://make-a-calendar.com/pages/blank-calendar), the [calendar generator](https://make-a-calendar.com/calendar-generator), [multi-month calendars](https://make-a-calendar.com/multi-month-calendar), and the [business-day calculator](https://make-a-calendar.com/business-days-calculator). Scheduling references include [pay-period calendars](https://make-a-calendar.com/pay-period-calendar), [biweekly calendars](https://make-a-calendar.com/biweekly-calendar), [rotating shifts](https://make-a-calendar.com/shift-calendar), [fiscal calendars](https://make-a-calendar.com/fiscal-calendar), and the [4-4-5](https://make-a-calendar.com/445-calendar), [4-5-4](https://make-a-calendar.com/454-calendar), and [5-4-4](https://make-a-calendar.com/544-calendar) retail calendars. Date references include [date tools](https://make-a-calendar.com/date-tools), [recurring dates](https://make-a-calendar.com/recurring-dates), the [deadline calculator](https://make-a-calendar.com/deadline-calculator), [week numbers](https://make-a-calendar.com/week-number), [date converters](https://make-a-calendar.com/converters), and the [iCalendar generator](https://make-a-calendar.com/ical-generator). The app's own calculations stay offline; these website links are optional references.
 
-The complete route-by-route review, which tools each route describes, and which parts are implemented locally are recorded in [docs/resource-links.md](docs/resource-links.md). The link strategy is contextual rather than a keyword-heavy backlink dump. Desktop links are not counted as crawlable website links.
+The complete route-by-route review, which tools each route describes, and which parts are implemented locally are recorded in [docs/resource-links.md](docs/resource-links.md). Links in this README and the Snap Store description are clickable public references; links inside the desktop app remain user-triggered browser references.
 
 ## Privacy and storage
 
