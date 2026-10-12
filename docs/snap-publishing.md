@@ -1,29 +1,45 @@
 # Snap packaging and release notes
 
-The project targets `core24`, strict confinement, and the supported GNOME extension for the GTK4 desktop command. The Snap manifest currently has `grade: devel`; promote it to `stable` only after a Linux build, launch, portal file selection, project persistence, and exported PDF/SVG checks pass.
+## Package
 
-The application stores under the Snap's application data directory. It opens online references in the default browser only on user action, so the application itself does not request a network plug. It does not directly connect to CUPS. The GNOME extension supplies the desktop runtime integration; no broad home plug or classic confinement is requested. GTK 4.10+'s asynchronous `Gtk.FileDialog` provides portal-backed file selection.
+The Snap uses the `core24` base, strict confinement, and the GNOME extension for the GTK4 desktop app. The calendar engine and stored projects work offline; optional Make a Calendar links open only when selected. The package declares the store icon, homepage, source repository, support contact, issue tracker, MIT license, and product description.
 
-## Build and review from Linux
+The stable-grade manifest and complete listing copy are prepared locally. The user accepted the GitHub invitation and is signed in to the browser as `karencohenjw`; the repository editor now offers the normal commit action. The local Git push has not yet been confirmed, so the public `main` branch is still the source of truth until a push and Actions run are verified. Do not release the old development-grade revision to stable.
 
-1. Use current supported Snapcraft 9 tooling with the Ubuntu `core24` base.
-2. Build for `amd64` and run the strict-confined Snap in a GNOME session.
-3. Verify app menu registration, theme handling, GTK `FileDialog` portal behavior, XDG/Snap local storage, CLI output, and PDF/SVG validity.
-4. Take authentic screenshots of the installed application in that Linux session. Do not substitute SVG mockups or browser captures.
-5. Request `make-a-calendar-studio` in the Karen Cohen Snapcraft account. The request was submitted on 2026-10-12 and the Store indicated manual review may take up to 30 days. The Snap is not yet public.
-6. Upload first to `edge` or another development channel, review the Store page and metadata, then move to stable after QA and any Store review.
+## Verified Store state
 
-The repository includes [a GitHub Actions Snap build workflow](../.github/workflows/snap-build.yml) that runs the official `snapcore/action-build` action on Ubuntu 24.04 and retains the `.snap` file as a short-lived build artifact. It does not upload to the Snap Store. It can run after the repository is created and connected; the workflow has not run yet. Canonical documents this action as a GitHub option for Snapcraft builds ([action source](https://github.com/snapcore/action-build), [Snapcraft build environment options](https://ubuntu.com/docs/snapcraft/9/reference/build-environment-options/)).
+- Public page: [Make a Calendar Studio on the Snap Store](https://snapcraft.io/make-a-calendar-studio)
+- Publisher: Karen Cohen (`jwcalendar`)
+- Current release: `0.1.0`, revision 1, `latest/edge`
+- Automated review: 43 passes, no warnings, no failures
+- Revision 2: rejected because the repacked archive had mismatched checksums and unusual symlink permissions; do not release it
 
-Current official references:
+The successful GitHub Linux CI and Snap build artifacts are recorded in [the verification report](verification.md). An uploaded Snap revision must be reviewed by the Store before release. Stable should only be reported after the Store confirms the stable channel.
 
-- [Snapcraft GTK4 app guide](https://ubuntu.com/docs/snapcraft/9/how-to/integrations/craft-a-gtk4-app/)
-- [GNOME extension guide](https://ubuntu.com/docs/snapcraft/9/how-to/extensions/use-the-gnome-extension/)
-- [Snapcraft publishing guide](https://ubuntu.com/docs/snapcraft/9/how-to/publishing/)
-- [Remote build guide](https://ubuntu.com/docs/snapcraft/9/explanation/remote-build/)
+## Store listing content
 
-The remote builder compiles on Linux through Launchpad. A successful remote build alone does not prove the graphical app launches; a real Linux desktop run remains necessary.
+The local Snap manifest has a concise summary, a feature-focused description with Make a Calendar links, an icon, and homepage/source/support/issue links. The standalone [listing-copy sheet](store-listing-copy.md) contains every field. In Snapcraft's preview, custom Markdown link labels displayed literally, so the listing copy now uses descriptive list labels followed by direct URLs; all 15 URLs appeared as real clickable anchors in the preview. The editor also shows the icon, featured banner, and five selected Linux screenshots. However, the listing API returned “There was a problem saving listing data” during save. The public listing still shows the older description and does not show the prepared gallery. Treat the preview as unsaved until the public page confirms the new copy and media.
 
-## Present status
+Prepared store media:
 
-Snapcraft is not installed on the current macOS host. The authenticated Snapcraft account identifies the publisher as Karen Cohen (`jwcalendar`) and currently lists two other published snaps. The `make-a-calendar-studio` name request returned to the account overview but is not listed among published snaps; Store approval is not confirmed. A Linux build, upload, Store review, public release, install check, and Store screenshots have not been completed or claimed.
+- `assets/make-a-calendar-studio-store-icon.png` — 512×512 PNG logo
+- `assets/make-a-calendar-studio-featured.png` — 1920×640 featured banner
+- `screenshots/01-overview.png` — overview and quick actions
+- `screenshots/02-calendar-designer.png` — calendar design workspace
+- `screenshots/03-year-planner.png` — annual planning view
+- `screenshots/04-print-studio.png` — print and export settings
+- `screenshots/05-fiscal-studio.png` — retail fiscal periods
+- `screenshots/06-payroll-shifts.png` — payroll and shift schedules
+- `screenshots/07-date-tools.png` — date converters
+- `screenshots/08-online-resources.png` — optional Make a Calendar links
+
+The icon and featured banner are separate listing fields. The gallery allows up to five media items; the editor currently contains five genuine Linux screenshots from the set above. The screenshots are real application captures, not generated UI. Public visibility remains unconfirmed because the listing save failed.
+
+## Next release sequence
+
+1. Commit and push the prepared source and listing changes using the authenticated Karen account; verify the new GitHub commit and Actions run.
+2. Wait for GitHub Actions to pass and produce a new Linux `.snap` artifact.
+3. Upload that build artifact through the authenticated Karen Snapcraft account. Do not use a manually repacked Snap.
+4. Confirm the new revision is approved, then release it to `latest/stable` and verify the Store's channel status.
+5. Resolve the listing API save failure. Verify the icon, banner, five screenshots, and clickable description links on the public listing page.
+6. Test a clean Store install on Linux and record the result here.
