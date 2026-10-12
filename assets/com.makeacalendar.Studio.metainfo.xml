@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.makeacalendar.Studio</id>
+  <name>Make a Calendar Studio</name>
+  <summary>Design printable calendars and plan schedules offline</summary>
+  <developer id="com.makeacalendar">
+    <name>Ethan — Make a Calendar</name>
+  </developer>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MIT</project_license>
+  <icon type="stock">make-a-calendar-studio</icon>
+  <launchable type="desktop-id">com.makeacalendar.Studio.desktop</launchable>
+  <url type="homepage">https://make-a-calendar.com/</url>
+  <url type="vcs-browser">https://github.com/karencohenjw/make-a-calendar-studio-linux</url>
+  <description>
+    <p>A local-first GTK4 workspace for designing civil calendars, planning years, calculating business dates, exploring retail fiscal periods, generating recurring pay dates and rotating shifts, and exporting vector PDF or SVG documents.</p>
+    <p>Projects and events are saved locally. Online Make a Calendar resources are optional links that open in the system browser.</p>
+  </description>
+  <content_rating type="oars-1.1"/>
+  <releases>
+    <release version="0.1.0" date="2026-10-12">
+      <description><p>First development release with calendar design, local project storage, scheduling calculations, converters, and vector document export.</p></description>
+    </release>
+  </releases>
+  <provides>
+    <binary>make-calendar-studio-cli</binary>
+  </provides>
+</component>

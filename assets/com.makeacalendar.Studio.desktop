@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Make a Calendar Studio
+Comment=Design calendars and schedules offline
+Exec=make-a-calendar-studio
+Icon=make-a-calendar-studio
+Terminal=false
+Categories=Office;Calendar;Utility;
+StartupNotify=true
+StartupWMClass=com.makeacalendar.Studio
+DBusActivatable=false
+
