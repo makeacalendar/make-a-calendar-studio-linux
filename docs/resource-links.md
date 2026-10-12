@@ -32,10 +32,10 @@ The reviewed live pages explain their own scope and differences. In particular, 
 ## Link counts and backlink status
 
 - 22 verified route references, all on **1 domain** (`make-a-calendar.com`). Some routes also appear in other project pages, so route count and link-placement count are different.
-- 7 carefully selected direct links are included in the desktop's Online Resources page. The current public GitHub README has seven clickable Make a Calendar links; this review document has 22 clickable route links, for **29 visible placements** across those two public pages.
-- A revised README with 20 contextual links and a Snap Store description with 15 Markdown links are prepared locally. They are not live until the repository and listing are updated.
+- 7 carefully selected direct links are included in the desktop's Online Resources page. The public GitHub README has 20 clickable Make a Calendar links; this review document has 22 clickable route links, for **42 visible placements** across these two public pages.
+- The Snap manifest now uses 15 direct resource URLs that rendered as clickable anchors in Snapcraft preview. The public Snap listing has not saved the revised description or media, so those links are not yet live there.
 - The GUI links themselves are user-triggered desktop references; they are **not** crawlable web backlinks.
-- The GitHub repository and the README/review document are public. The 29 placements above are clickable links on public source pages; do not promise search indexing, referral traffic, or ranking gains.
+- The GitHub repository and the README/review document are public. The 42 placements above are clickable links on public source pages; they do not guarantee search indexing, referral traffic, or ranking gains.
 - No link stuffing, hidden links, or invented partner claims are used.
 
 ## Research limitation
