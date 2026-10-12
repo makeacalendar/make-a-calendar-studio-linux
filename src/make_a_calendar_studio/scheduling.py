@@ -7,8 +7,14 @@ from datetime import date, timedelta
 from typing import Iterable, List, Sequence, Tuple
 
 
-def business_days(start: date, end: date, *, weekend: Sequence[int] = (5, 6),
-                  holidays: Iterable[date] = (), inclusive: bool = True) -> int:
+def business_days(
+    start: date,
+    end: date,
+    *,
+    weekend: Sequence[int] = (5, 6),
+    holidays: Iterable[date] = (),
+    inclusive: bool = True,
+) -> int:
     if end < start:
         raise ValueError("end must not be before start")
     if any(day not in range(7) for day in weekend):
@@ -27,8 +33,9 @@ def business_days(start: date, end: date, *, weekend: Sequence[int] = (5, 6),
     return count
 
 
-def add_business_days(start: date, days: int, *, weekend: Sequence[int] = (5, 6),
-                      holidays: Iterable[date] = ()) -> date:
+def add_business_days(
+    start: date, days: int, *, weekend: Sequence[int] = (5, 6), holidays: Iterable[date] = ()
+) -> date:
     if days == 0:
         return start
     if any(day not in range(7) for day in weekend):
@@ -63,12 +70,12 @@ def fiscal_months(start_year: int, start_month: int = 10) -> Tuple[Tuple[int, da
         raise ValueError("start_year must be between 1 and 9998")
     if not 1 <= start_month <= 12:
         raise ValueError("start_month must be between 1 and 12")
-    periods=[]
+    periods = []
     year, month = start_year, start_month
-    for index in range(1,13):
-        last_day=calendar.monthrange(year,month)[1]
-        periods.append((index,date(year,month,1),date(year,month,last_day)))
-        year,month=year+(month==12),month%12+1
+    for index in range(1, 13):
+        last_day = calendar.monthrange(year, month)[1]
+        periods.append((index, date(year, month, 1), date(year, month, last_day)))
+        year, month = year + (month == 12), month % 12 + 1
     return tuple(periods)
 
 
@@ -102,8 +109,9 @@ def retail_periods(year: int, pattern: str = "4-5-4") -> Tuple[Tuple[int, date, 
     return tuple(periods)
 
 
-def payroll_dates(start: date, end: date, frequency: str = "biweekly", *,
-                  anchor: date | None = None, day: int = 1) -> Tuple[date, ...]:
+def payroll_dates(
+    start: date, end: date, frequency: str = "biweekly", *, anchor: date | None = None, day: int = 1
+) -> Tuple[date, ...]:
     if end < start:
         raise ValueError("end must not be before start")
     if frequency in ("weekly", "biweekly"):
@@ -146,7 +154,9 @@ SHIFT_PATTERNS = {
 }
 
 
-def shift_days(start: date, end: date, *, anchor: date, pattern: str = "2-2-3") -> Tuple[Tuple[date, bool], ...]:
+def shift_days(
+    start: date, end: date, *, anchor: date, pattern: str = "2-2-3"
+) -> Tuple[Tuple[date, bool], ...]:
     if end < start:
         raise ValueError("end must not be before start")
     cycle = SHIFT_PATTERNS.get(pattern)

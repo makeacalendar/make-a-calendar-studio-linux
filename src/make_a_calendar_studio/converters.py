@@ -14,7 +14,9 @@ def unix_timestamp_to_date(value: int | float) -> date:
 
 
 def date_to_unix_timestamp(value: date) -> int:
-    return int((datetime(value.year, value.month, value.day, tzinfo=timezone.utc) - UNIX_EPOCH).total_seconds())
+    return int(
+        (datetime(value.year, value.month, value.day, tzinfo=timezone.utc) - UNIX_EPOCH).total_seconds()
+    )
 
 
 def excel_serial_to_date(value: int | float) -> date:

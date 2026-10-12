@@ -36,8 +36,11 @@ def federal_holidays(year: int) -> Dict[date, str]:
     holidays: Dict[date, str] = {}
     for legal_year in (max(1, year - 1), year, min(9999, year + 1)):
         fixed = (
-            (1, 1, "New Year's Day"), (6, 19, "Juneteenth National Independence Day"),
-            (7, 4, "Independence Day"), (11, 11, "Veterans Day"), (12, 25, "Christmas Day"),
+            (1, 1, "New Year's Day"),
+            (6, 19, "Juneteenth National Independence Day"),
+            (7, 4, "Independence Day"),
+            (11, 11, "Veterans Day"),
+            (12, 25, "Christmas Day"),
         )
         legal_dates = [(date(legal_year, m, d), name) for m, d, name in fixed]
         legal_dates += [

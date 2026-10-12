@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import calendar
 from dataclasses import dataclass
-from datetime import date, timedelta
+from datetime import date
 from typing import Optional, Tuple
 
 
@@ -14,8 +14,9 @@ class CalendarCell:
     in_month: bool
 
 
-def month_grid(year: int, month: int, week_start: int = 0, *, fixed_six_rows: bool = False,
-               adjacent_dates: bool = True) -> Tuple[Tuple[CalendarCell, ...], ...]:
+def month_grid(
+    year: int, month: int, week_start: int = 0, *, fixed_six_rows: bool = False, adjacent_dates: bool = True
+) -> Tuple[Tuple[CalendarCell, ...], ...]:
     """Return a 4–6 row month grid. week_start uses datetime.weekday(): Mon=0, Sun=6."""
     if not 1 <= year <= 9999:
         raise ValueError("year must be between 1 and 9999")
@@ -36,7 +37,9 @@ def month_grid(year: int, month: int, week_start: int = 0, *, fixed_six_rows: bo
             ordinal = start_ordinal + row * 7 + col
             current = date.fromordinal(ordinal) if 1 <= ordinal <= last_ordinal else None
             in_month = current is not None and current.year == year and current.month == month
-            cells.append(CalendarCell(current if current and (in_month or adjacent_dates) else None, in_month))
+            cells.append(
+                CalendarCell(current if current and (in_month or adjacent_dates) else None, in_month)
+            )
         result.append(tuple(cells))
     return tuple(result)
 
