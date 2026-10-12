@@ -11,7 +11,8 @@
   <icon type="stock">make-a-calendar-studio</icon>
   <launchable type="desktop-id">com.makeacalendar.Studio.desktop</launchable>
   <url type="homepage">https://make-a-calendar.com/</url>
-  <url type="vcs-browser">https://github.com/karencohenjw/make-a-calendar-studio-linux</url>
+  <url type="vcs-browser">https://github.com/makeacalendar/make-a-calendar-studio-linux</url>
+  <url type="bugtracker">https://github.com/makeacalendar/make-a-calendar-studio-linux/issues</url>
   <description>
     <p>A local-first GTK4 workspace for designing civil calendars, planning years, calculating business dates, exploring retail fiscal periods, generating recurring pay dates and rotating shifts, and exporting vector PDF or SVG documents.</p>
     <p>Projects and events are saved locally. Online Make a Calendar resources are optional links that open in the system browser.</p>
@@ -19,10 +20,23 @@
   <content_rating type="oars-1.1"/>
   <releases>
     <release version="0.1.0" date="2026-10-12">
-      <description><p>First development release with calendar design, local project storage, scheduling calculations, converters, and vector document export.</p></description>
+      <description><p>Initial release with calendar design, local project storage, scheduling calculations, converters, and vector document export.</p></description>
     </release>
   </releases>
   <provides>
     <binary>make-calendar-studio-cli</binary>
   </provides>
+  <categories>
+    <category>Office</category>
+    <category>Utility</category>
+  </categories>
+  <keywords>
+    <keyword>calendar</keyword>
+    <keyword>planner</keyword>
+    <keyword>business days</keyword>
+    <keyword>payroll</keyword>
+    <keyword>shift schedule</keyword>
+    <keyword>fiscal calendar</keyword>
+    <keyword>printable calendar</keyword>
+  </keywords>
 </component>
