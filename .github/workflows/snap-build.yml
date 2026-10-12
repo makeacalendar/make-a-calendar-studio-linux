@@ -1,0 +1,25 @@
+name: Snap package
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-snap:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build the core24 Snap on Linux
+        id: snapcraft
+        uses: snapcore/action-build@v1
+      - name: Keep the development package as an artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: make-a-calendar-studio-snap-amd64
+          path: ${{ steps.snapcraft.outputs.snap }}
+          if-no-files-found: error
+          retention-days: 14
