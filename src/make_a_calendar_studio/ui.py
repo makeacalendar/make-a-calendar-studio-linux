@@ -123,14 +123,12 @@ class CalendarStudioApp(Adw.Application):
         self.window.present()
 
     def _build_window(self):
-        root = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
         header = Adw.HeaderBar()
         header.set_title_widget(Gtk.Label(label="Make a Calendar Studio"))
         new_button = Gtk.Button(label="New project")
         new_button.add_css_class("suggested-action")
         new_button.connect("clicked", lambda *_: self._create_project())
         header.pack_end(new_button)
-        self.window.set_titlebar(header)
 
         paned = Gtk.Paned(orientation=Gtk.Orientation.HORIZONTAL)
         paned.set_position(245)
@@ -191,8 +189,10 @@ class CalendarStudioApp(Adw.Application):
         paned.set_end_child(self.stack)
         paned.set_resize_start_child(False)
         paned.set_shrink_start_child(False)
-        root.append(paned)
-        self.window.set_content(root)
+        toolbar_view = Adw.ToolbarView()
+        toolbar_view.add_top_bar(header)
+        toolbar_view.set_content(paned)
+        self.window.set_content(toolbar_view)
         start_page = os.environ.get("MCS_START_PAGE", "overview")
         start_index = next((index for index, entry in enumerate(NAVIGATION) if entry[0] == start_page), 0)
         self.nav.select_row(self.nav_rows[start_index])
