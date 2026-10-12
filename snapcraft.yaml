@@ -2,18 +2,43 @@ name: make-a-calendar-studio
 title: Make a Calendar Studio
 base: core24
 version: "0.1.0"
-summary: Design calendars and schedules, then export crisp documents offline
+summary: Design printable calendars and plan dates offline
 description: |
-  A native Linux workspace for monthly and yearly calendars, local project notes,
-  business-day calculations, US federal holiday dates, retail fiscal periods,
-  recurring pay dates, rotating shifts, date conversion, and vector PDF/SVG export.
+  Make a Calendar Studio is an offline-first Linux desktop workspace for designing
+  printable calendars and planning date-driven work.
 
-  Calendar data and saved projects stay on your device. Optional Make a Calendar
-  links open in your default browser only when selected.
-  Created by Ethan, the developer behind Make a Calendar.
+  Create monthly and yearly grids; save local projects; count business days around
+  US federal holidays; plan payroll dates and rotating shifts; compare 4-4-5,
+  4-5-4, and 5-4-4 fiscal periods; convert dates; and export vector PDF/SVG,
+  CSV, JSON, or ICS data.
+
+  **Private by default:** calendars and projects stay on your device. The core app
+  works offline; optional web resources open in your browser only when selected.
+
+  **Related Make a Calendar resources**
+  * [Make a Calendar](https://make-a-calendar.com/)
+  * [Printable monthly calendars](https://make-a-calendar.com/monthly-calendars)
+  * [Blank calendar templates](https://make-a-calendar.com/pages/blank-calendar)
+  * [Calendar generator](https://make-a-calendar.com/calendar-generator)
+  * [Multi-month calendars](https://make-a-calendar.com/multi-month-calendar)
+  * [Business-day calculator](https://make-a-calendar.com/business-days-calculator)
+  * [Pay-period calendar](https://make-a-calendar.com/pay-period-calendar)
+  * [Rotating-shift calendar](https://make-a-calendar.com/shift-calendar)
+  * [Fiscal calendar](https://make-a-calendar.com/fiscal-calendar)
+  * [4-4-5 calendar](https://make-a-calendar.com/445-calendar), [4-5-4 calendar](https://make-a-calendar.com/454-calendar), and [5-4-4 calendar](https://make-a-calendar.com/544-calendar)
+  * [Date tools](https://make-a-calendar.com/date-tools) and [date converters](https://make-a-calendar.com/converters)
+  * [iCalendar generator](https://make-a-calendar.com/ical-generator)
+
+  This independent, original desktop application is created by Ethan, the
+  developer behind Make a Calendar. It is not the website packaged in a browser
+  and does not use the website's private implementation.
 license: MIT
+icon: assets/make-a-calendar-studio.svg
 website: https://make-a-calendar.com/
-grade: devel
+contact: https://github.com/makeacalendar/make-a-calendar-studio-linux/issues
+source-code: https://github.com/makeacalendar/make-a-calendar-studio-linux
+issues: https://github.com/makeacalendar/make-a-calendar-studio-linux/issues
+grade: stable
 confinement: strict
 adopt-info: app
 
