@@ -1,26 +1,23 @@
 # Verification record
 
-**Last checked:** 2026-10-12. This records what is actually published and tested; it is not a claim of a stable release.
+**Last checked:** 2026-10-12 (Europe/Istanbul). This records what is published and verified; it does not claim that a stable release is complete.
 
 ## Confirmed
 
-- The public source repository is [`makeacalendar/make-a-calendar-studio-linux`](https://github.com/makeacalendar/make-a-calendar-studio-linux).
-- GitHub Actions run [38277010585](https://github.com/makeacalendar/make-a-calendar-studio-linux/actions/runs/38277010585) completed successfully. It ran the Linux tests, lint, Python compilation, CLI/export checks, a headless GTK startup, and capture of the real Linux UI.
-- The separate Snap build run [38277010553](https://github.com/makeacalendar/make-a-calendar-studio-linux/actions/runs/38277010553) completed and produced an Ubuntu-built `amd64` Snap artifact.
-- Snap `make-a-calendar-studio` is public under publisher Karen Cohen (`jwcalendar`). Version `0.1.0`, revision 1 is released on `latest/edge`. Its automated review reported 43 passes, 0 warnings, and 0 failures.
-- The Store rejected revision 2. Its package did not match the Snap Store's expected pack checksums and included unusual symlink permissions. Revision 2 is not released and must not be promoted.
-- Eight screenshots in `screenshots/` were captured from the real application running in Linux CI. They are not mockups. Five selected screenshots, the icon, and banner are present in the Snapcraft listing editor, but the public gallery is not yet confirmed.
-- Twenty-two Make a Calendar routes were reviewed for `docs/resource-links.md`. The public README has 7 clickable links and this public route review has 22, for 29 visible placements across those two pages. This does not guarantee search indexing or ranking.
-- A 512×512 store icon and a 1920×640 featured banner have been prepared from the existing icon and a genuine Linux screenshot. The local screenshot set meets the Store's published size rules. The Snapcraft editor preview displays the listing artwork.
+- The public source repository is [makeacalendar/make-a-calendar-studio-linux](https://github.com/makeacalendar/make-a-calendar-studio-linux).
+- The stable-grade manifest and direct-URL Snap description are committed to `main`. Linux verification run [38287082047](https://github.com/makeacalendar/make-a-calendar-studio-linux/actions/runs/38287082047), for manifest commit `19661393`, completed successfully.
+- Snap build run [38287082039](https://github.com/makeacalendar/make-a-calendar-studio-linux/actions/runs/38287082039), for the same stable-grade manifest commit, was still running at the last check. Do not upload a replacement until a successful run provides its Ubuntu-built artifact.
+- Snap `make-a-calendar-studio` is public under Karen Cohen (`jwcalendar`). Version `0.1.0`, revision 1, is released on `latest/edge`; its automated review reported 43 passes, no warnings, and no failures. Revision 2 was rejected for checksum and symlink-permission issues and must not be promoted.
+- The public README contains 20 clickable Make a Calendar links. The route review in [docs/resource-links.md](resource-links.md) contains 22 more; that is 42 visible placements across these two public pages. They do not guarantee indexing, referral traffic, or ranking.
+- The Snap manifest and listing-copy sheet include 15 direct Make a Calendar URLs. Snapcraft preview rendered them as clickable anchors, but the listing save failed. The public Store page still has the old description and no confirmed gallery.
+- The 512×512 store icon and 1920×640 featured banner are committed under `assets/`. Five real Linux screenshots were selected in the Snapcraft editor preview; public gallery visibility is unconfirmed.
 
 ## Still pending
 
-- The GitHub `main` branch still has `grade: devel`. The local release manifest is prepared with stable grade and corrected listing metadata. The user accepted the invitation and GitHub is open as `karencohenjw`; the browser editor now offers the normal commit action. A local Git push and new Actions run still need verification.
-- Stable has not been released. A new Linux-built stable-grade revision must pass Store review before it can be moved to `latest/stable`.
-- The public Snap listing still has the old description and no confirmed media gallery. The editor preview shows the updated copy and real clickable URL anchors for all 15 Make a Calendar resources, plus the icon, featured banner, and five screenshots. The listing save API reports “There was a problem saving listing data”; the public page must be checked after that failure is resolved.
-- A clean install and launch of the approved Snap revision on a Linux desktop have not been confirmed.
-- The current public README has seven clickable Make a Calendar links. A revised README with 20 links and Snap listing copy with 15 direct clickable URLs are prepared locally, but are not published yet.
+- The Snap build must finish successfully and expose a fresh Ubuntu-built `.snap` artifact. Upload that artifact through Karen's Snapcraft account, wait for Store review, and release it to `latest/stable` only after approval.
+- Retry saving the Snap listing. Verify that the public page shows the 15 clickable resource URLs, icon, banner, and five screenshots.
+- Confirm a clean Store install and launch on Linux.
 
 ## Accurate release claims
 
-The current public channel is `latest/edge`, not stable. The successful Linux GUI smoke check is not the same as verifying a clean install of the Store Snap. A backlink is only counted as published when its clickable link is visible in a public page; the in-app browser links are not public web backlinks.
+The published channel remains `latest/edge` until the Store confirms a stable release. A successful CI GUI smoke check does not confirm a clean Store install. Count a backlink only when its clickable link is visible on a public web page; links inside the desktop app are user-triggered references, not crawlable backlinks.
